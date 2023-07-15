@@ -1,12 +1,12 @@
-Role Name
+DNS
 =========
 
-A brief description of the role goes here.
+Installation and configuration of dnsmasq for use in a small network
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Create first a machine with a static ip and a hostname related to dns (*ns1* is a good one ?).
 
 Role Variables
 --------------
@@ -17,6 +17,23 @@ Dependencies
 ------------
 
 A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+
+Installation :
+Create file "requirements.yml" with this information :
+
+```yaml
+---
+- src: https://github.com/watysay/ansible-role-dns.git
+  scm: git
+  version: main
+  name: dns
+```
+and install with 
+```sh
+ansible-galaxy install -r requirements.yml
+```
+(add -f roles if needed)
+
 
 Example Playbook
 ----------------
@@ -30,7 +47,7 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+GPL v3
 
 Author Information
 ------------------
